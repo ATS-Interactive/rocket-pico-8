@@ -13,22 +13,22 @@ function _update()
   
   if btn(⬅️) then
     if my_rocket.x > my_rocket.speed then
-	    offset_x=-1
+     offset_x=-1
     end
   end
   if btn(➡️) then
     if my_rocket.x < 120-my_rocket.speed then
-	    offset_x=1
+     offset_x=1
     end
   end 
   if btn(⬆️) then
     if my_rocket.y > my_rocket.speed then
-	    offset_y=-1
+     offset_y=-1
     end
   end 
   if btn(⬇️) then
     if my_rocket.y < 120-my_rocket.speed then
-		    offset_y=1
+      offset_y=1
     end
   end
 
@@ -36,11 +36,11 @@ function _update()
   offset_len = sqrt(offset_x*offset_x+offset_y*offset_y)
   
   if offset_len != 0 then
-		  offset_x /= offset_len
-		  offset_y /= offset_len  
-		
-		  my_rocket.x+=offset_x * my_rocket.speed 
-		  my_rocket.y+=offset_y * my_rocket.speed
+    offset_x /= offset_len
+    offset_y /= offset_len  
+  
+    my_rocket.x+=offset_x * my_rocket.speed 
+    my_rocket.y+=offset_y * my_rocket.speed
   end
 
   if btnp(❎) then
@@ -54,25 +54,25 @@ function _update()
   end
   
   for s in all(shots) do
-		  s:update()
-		  
-		  if s.y < -8 then
-		    del(shots, s)
-		  end 
-		end
-		
-		my_starfield:update()
+    s:update()
+    
+    if s.y < -8 then
+      del(shots, s)
+    end 
+  end
+  
+  my_starfield:update()
 end
 
 function _draw()
 
   my_starfield:draw()
   
-		my_rocket:draw()
-		
-		for s in all(shots) do
-		  s:draw()
-		end
+  my_rocket:draw()
+  
+  for s in all(shots) do
+    s:draw()
+  end
 
 end
 -->8
@@ -80,15 +80,15 @@ end
 function rocket_new(_x, _y)
   o = {
     -- properties
-		  x=_x,
-		  y=_y,
-		  sprite=1,
-		  speed=1.5,
-		  
-		  -- methods
-		  draw = function (self)
-		    spr(self.sprite, self.x, self.y)
-		  end
+    x=_x,
+    y=_y,
+    sprite=1,
+    speed=1.5,
+    
+    -- methods
+    draw = function (self)
+      spr(self.sprite, self.x, self.y)
+    end
   }
 
   return o
